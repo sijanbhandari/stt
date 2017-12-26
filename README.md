@@ -1,5 +1,11 @@
 # Simple speech to text docker container based on Mozilla's DeepSpeech
 
+## cache
+if you want to try it out and make changes, I recommend you cache the Speech to Text binaries locally first;
+```
+./dl.sh
+```
+
 ## build
 ```
 docker build -t stt .
