@@ -19,13 +19,13 @@ lm_trie = '/app/models/trie'
 
 if __name__ == '__main__' :
 
-    # copy incoming text to say.txt
-    with open('./input.wav', 'wb') as writer:
+    # copy incoming text to input
+    with open('./input', 'wb') as writer:
         writer.write(sys.stdin.buffer.read())
 
     # convert wav to right format
     with open(os.devnull, 'w') as f_null:
-        subprocess.call(["/usr/bin/ffmpeg", "-i", "./input.wav", "-acodec", "pcm_s16le",
+        subprocess.call(["/usr/bin/ffmpeg", "-i", "./input", "-acodec", "pcm_s16le",
                          "-ac", "1", "-ar", "16000", "./output.wav"], stdout=f_null, stderr=f_null)
 
     process = subprocess.Popen([deepspeech_executable, graph_file, sound_file, abc, lm_bin, lm_trie],
