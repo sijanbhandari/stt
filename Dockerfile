@@ -30,8 +30,8 @@ RUN cp generate_trie /usr/local/bin/
 RUN ldconfig
 
 # copy nnet 0.1 files
-RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.1.0/deepspeech-0.1.0-models.tar.gz
-RUN tar xvjf deepspeech-0.1.0-models.tar.gz
+RUN ./dl.sh
+RUN tar xvzf deepspeech-0.1.0-models.tar.gz
 
 CMD ["./stt.py"]
 

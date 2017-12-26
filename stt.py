@@ -11,11 +11,11 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 logging.basicConfig(level=logging.INFO)
 
 deepspeech_executable = '/usr/local/bin/deepspeech'
-graph_file = '/app/data/graph/output_graph.pb'
+graph_file = '/app/models/output_graph.pb'
 sound_file = '/app/output.wav'
-abc = '/app/data/alphabet.txt'
-lm_bin = '/app/data/lm/lm.binary'
-lm_trie = '/app/data/lm/trie'
+abc = '/app/models/alphabet.txt'
+lm_bin = '/app/models/lm.binary'
+lm_trie = '/app/models/trie'
 
 if __name__ == '__main__' :
 
