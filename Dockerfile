@@ -24,6 +24,9 @@ RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt xenial main restricted uni
 COPY . /app
 WORKDIR /app
 
+RUN pip3 --no-cache-dir install --upgrade pip
+RUN pip3 install -r requirements.txt
+
 # setup natvie client
 RUN tar xvfJ native_client.tar.xz
 RUN cp lib* /usr/local/lib/
@@ -34,6 +37,8 @@ RUN ldconfig
 # copy nnet 0.1 files
 RUN ./dl.sh
 RUN tar xvzf deepspeech-0.1.0-models.tar.gz
+# remove after use
+RUN rm -f deepspeech-0.1.0-models.tar.gz
 
 EXPOSE 80
 

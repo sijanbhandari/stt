@@ -13,15 +13,15 @@ docker build -t stt .
 
 ## run service on port 82
 ```
-docker run -d --rm -p 81:80 --name tts -i tts
+docker run -d --rm -p 82:80 --name stt -i stt
 ```
 
 post data to service for testing (this can take mp3s or other type files as input, sample shown with wav)
 ```
-curl -X POST -F "file=@sample/1284-1180-0010.wav" http://localhost/api/v1/stt
+curl -X POST -F "file=@sample/1284-1180-0010.wav" http://localhost:82/api/v1/stt
 ```
 
-should output
+should return JSON
 ```
-uncknockeatthedoor of the house and a chubby pleasant faced woman dressed all the blue opened it and greeted the visitors with a smile
+{"text": "uncknockeatthedoor of the house and a chubby pleasant faced woman dressed all the blue opened it and greeted the visitors with a smile"}
 ```
