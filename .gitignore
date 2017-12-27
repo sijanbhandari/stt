@@ -1,2 +1,5 @@
-deepspeech-0.1.0-models.tar.gz
-
+build/
+output*
+.env
+.idea
+deepspeech-*.tar.gz

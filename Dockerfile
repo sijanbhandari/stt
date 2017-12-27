@@ -9,6 +9,8 @@ RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt xenial main restricted uni
         build-essential \
         curl \
         python3 \
+        python3-pip \
+        python3-setuptools \
         libasound2-plugins \
         libsox-fmt-all \
         libsox-dev \
@@ -33,5 +35,11 @@ RUN ldconfig
 RUN ./dl.sh
 RUN tar xvzf deepspeech-0.1.0-models.tar.gz
 
-CMD ["./stt.py"]
+EXPOSE 80
 
+RUN pip3 --no-cache-dir install gunicorn
+
+# command line version
+# CMD ["./stt.py"]
+
+CMD ["gunicorn", "--access-logfile=-", "-t", "5", "-b", "0.0.0.0:80", "server:app"]
