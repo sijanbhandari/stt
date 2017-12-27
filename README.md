@@ -25,3 +25,5 @@ should return JSON
 ```
 {"text": "uncknockeatthedoor of the house and a chubby pleasant faced woman dressed all the blue opened it and greeted the visitors with a smile"}
 ```
+
+Gunicorn has a timeout of 120 seconds (see last line of Dockerfile).  CPU processing usually gives a 1x performance with the duration of the file, GPU performance is estimated at 0.4x the time of the file.  You will need to increase this timeout for larger files to work.

@@ -47,4 +47,4 @@ RUN pip3 --no-cache-dir install gunicorn
 # command line version
 # CMD ["./stt.py"]
 
-CMD ["gunicorn", "--access-logfile=-", "-t", "5", "-b", "0.0.0.0:80", "server:app"]
+CMD ["gunicorn", "--access-logfile=-", "-t", "120", "-b", "0.0.0.0:80", "server:app"]

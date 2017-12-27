@@ -68,7 +68,7 @@ def convert_speech_to_text():
             raise ValueError(err)
 
         # change bytes back to text
-        text = out.decode("utf-8")
+        text = out.decode("utf-8").strip()
         return json.dumps({'text': text}), 200, {'ContentType': 'application/javascript'}
 
     else:
