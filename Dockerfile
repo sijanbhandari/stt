@@ -24,7 +24,6 @@ RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt xenial main restricted uni
 COPY . /app
 WORKDIR /app
 
-RUN pip3 --no-cache-dir install --upgrade pip
 RUN pip3 install -r requirements.txt
 
 # setup natvie client
